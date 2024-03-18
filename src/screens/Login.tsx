@@ -54,19 +54,21 @@ const Login = () => {
 
 
   return (
-    <View>
-      <TextInput
+    <View style={{flex:1, justifyContent: 'center', paddingLeft: 15, paddingRight:15}}>
+      <TextInput style={{borderBottomWidth: 1, borderColor: 'gray', padding: 20}}
         placeholder="Username"
         value={state.username}
         onChangeText={handleUsernameChange}
       />
-      <TextInput
+      <TextInput style={{borderBottomWidth: 1, borderColor: 'gray', padding: 20}}
         placeholder="Password"
         value={state.password}
         onChangeText={handlePasswordChange}
         secureTextEntry
       />
-      <Button title="Login" onPress={navigateAndDisplay} />
+      <View style={{ paddingTop: 20 }}>
+        <Button title="Login" onPress={navigateAndDisplay} />
+      </View>   
     </View>
   );
 };

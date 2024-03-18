@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import Details from "../screens/Details";
 import { MainNavigatorStackParamList } from "./MainNavigator.types";
 import Login from "../screens/Login";
+import LogoutButton from "../components/LogoutButton";
 
 const MainStackNavigator = 
 createNativeStackNavigator<MainNavigatorStackParamList>();
@@ -20,24 +21,35 @@ const MainNavigator = () => {
         },
         headerTitleAlign: 'center',
         headerBackVisible: false,
-       headerRight: () => {
-       <View></View>
-       }
+       
     }}  >
 
         <MainStackNavigator.Screen
         name="Login"
         component={Login}
+        
         />
 
         <MainStackNavigator.Screen 
         name="Home" 
         component={Home}
 
+        options={{
+            headerRight: () => (
+              <LogoutButton />
+            ),
+          }}
+
         />
         <MainStackNavigator.Screen 
         name="Details" 
         component={Details} 
+
+        options={{
+            headerRight: () => (
+              <LogoutButton />
+            ),
+          }}
         />
 
 

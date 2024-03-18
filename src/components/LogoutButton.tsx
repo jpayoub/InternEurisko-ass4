@@ -1,8 +1,8 @@
-// StickyFooter.tsx
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Button } from 'react-native';
 import { MainNavigatorNavigationProp, MainNavigatorStackParamList } from '../navigation/MainNavigator.types';
+import { useCounterContex } from './CounterContex';
 
 
 
@@ -12,7 +12,6 @@ import { MainNavigatorNavigationProp, MainNavigatorStackParamList } from '../nav
 const LogoutButton =() => {
 
 
-    
     const navigation = useNavigation<MainNavigatorNavigationProp>();
     const navigateToLogin = () => {
          navigation.navigate("Login"
@@ -20,7 +19,21 @@ const LogoutButton =() => {
 
     };
 
+
   
+        const {setCounter} = useCounterContex();
+        const updateState = () => {
+        
+            setCounter(0);
+            
+        };
+    
+    const functions2 = () => {
+        updateState();
+        navigateToLogin();
+    }
+   
+
 
   return (
 
@@ -28,7 +41,7 @@ const LogoutButton =() => {
 
 
     <View >
-      <Button onPress={navigateToLogin}><Text>Logout</Text> </Button>
+      <Button title="Logout" onPress={functions2} />
     </View>
   );
 };
